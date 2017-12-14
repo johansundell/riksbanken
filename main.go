@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 )
 
 type Envelope struct {
@@ -51,7 +52,8 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 		return
 	}
-	fmt.Fprintf(w, fmt.Sprintf("%f", rate))
+	s := fmt.Sprintf("%f", rate)
+	fmt.Fprintf(w, strings.Replace(s, ".", ",", -1))
 }
 
 func getCurrencyRate(currencyCode string) (float32, error) {
