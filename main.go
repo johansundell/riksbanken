@@ -68,7 +68,7 @@ func main() {
 
 	svcConfig := &service.Config{
 		Name:        "riksbanken",
-		DisplayName: "Riksbanken is a service to get exchange rates",
+		DisplayName: "Riksbanken",
 		Description: "Riksbanken is a service to get exchange rates",
 	}
 
