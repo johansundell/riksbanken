@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"html/template"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strings"
 )
@@ -44,7 +43,7 @@ const getEnvelope = `<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-e
 func MainHandler(w http.ResponseWriter, r *http.Request) {
 	rate, err := getCurrencyRate("SEKEURPMI")
 	if err != nil {
-		log.Println(err)
+		logger.Infof(err.Error())
 		return
 	}
 	s := fmt.Sprintf("%f", rate)
